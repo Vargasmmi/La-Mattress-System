@@ -1,0 +1,21 @@
+# Vercelignore file
+.git
+.gitignore
+node_modules
+.env
+.env.local
+.env.development
+README.md
+DEPLOYMENT_GUIDE.md
+SHOPIFY_INTEGRATION.md
+API_DOCUMENTATION.md
+FIXES_SUMMARY.md
+README_DATABASE.md
+database/
+scripts/
+server/
+test-*.js
+test-*.html
+debug-app.js
+*.log
+.DS_Store
