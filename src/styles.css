@@ -1,0 +1,990 @@
+/* LA Mattress Brand Styles */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@500;700&display=swap');
+
+:root {
+  --primary-color: #00bcd4;
+  --secondary-color: #f8f8f8;
+  --accent-color: #f44336;
+  --text-color: #333333;
+  --success-color: #52c41a;
+  --error-color: #f44336;
+  --warning-color: #ff9800;
+  --dark-text: #212121;
+  --border-radius: 8px;
+}
+
+/* 3D Button Styles with Professional Effects */
+.ant-btn {
+  position: relative !important;
+  border-radius: var(--border-radius) !important;
+  font-family: 'Open Sans', sans-serif !important;
+  font-weight: 600 !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1) !important;
+}
+
+.ant-btn-primary {
+  background: linear-gradient(145deg, #00d4e6, #00b0c4) !important;
+  border: none !important;
+  box-shadow: 
+    0 4px 6px rgba(0, 188, 212, 0.3),
+    0 1px 3px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3) !important;
+}
+
+.ant-btn-primary:hover {
+  background: linear-gradient(145deg, #00e6f9, #00acc1) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 
+    0 6px 12px rgba(0, 188, 212, 0.4),
+    0 2px 4px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4) !important;
+}
+
+.ant-btn-primary:active {
+  transform: translateY(0) !important;
+  box-shadow: 
+    0 2px 4px rgba(0, 188, 212, 0.3),
+    0 1px 2px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
+}
+
+.ant-btn-default {
+  background: linear-gradient(145deg, #ffffff, #f0f0f0) !important;
+  border: 1px solid #e0e0e0 !important;
+  box-shadow: 
+    0 2px 4px rgba(0, 0, 0, 0.05),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9) !important;
+}
+
+.ant-btn-default:hover {
+  background: linear-gradient(145deg, #ffffff, #f5f5f5) !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 
+    0 4px 8px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 1) !important;
+}
+
+/* Danger button with red accent */
+.ant-btn-dangerous {
+  background: linear-gradient(145deg, #ff5252, #f44336) !important;
+  border: none !important;
+  box-shadow: 
+    0 4px 6px rgba(244, 67, 54, 0.3),
+    0 1px 3px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3) !important;
+}
+
+.ant-btn-dangerous:hover {
+  background: linear-gradient(145deg, #ff6363, #ef5350) !important;
+  transform: translateY(-2px) !important;
+}
+
+.ant-card {
+  border-radius: var(--border-radius) !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  border: 1px solid rgba(0, 0, 0, 0.05) !important;
+  overflow: hidden !important;
+}
+
+.ant-card:hover {
+  transform: translateY(-4px) !important;
+  box-shadow: 
+    0 12px 24px rgba(0, 0, 0, 0.15),
+    0 4px 8px rgba(0, 0, 0, 0.1) !important;
+  border-color: rgba(0, 188, 212, 0.2) !important;
+}
+
+/* Animated card entrance */
+@keyframes cardEntrance {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.ant-card {
+  animation: cardEntrance 0.5s ease-out !important;
+}
+
+.ant-card-head-title {
+  font-family: 'Poppins', sans-serif !important;
+  font-weight: 500 !important;
+  color: var(--dark-text) !important;
+}
+
+.ant-typography h1,
+.ant-typography h2,
+.ant-typography h3,
+.ant-typography h4,
+.ant-typography h5,
+.ant-typography h6 {
+  font-family: 'Poppins', sans-serif !important;
+  color: var(--dark-text) !important;
+}
+
+.ant-statistic-title {
+  font-family: 'Open Sans', sans-serif !important;
+  color: var(--text-color) !important;
+}
+
+.ant-statistic-content-value {
+  font-family: 'Poppins', sans-serif !important;
+  font-weight: 700 !important;
+}
+
+/* Progress bars with accent color */
+.ant-progress-bg {
+  background-color: var(--accent-color) !important;
+}
+
+/* Tags with LA Mattress colors */
+.ant-tag {
+  border-radius: var(--border-radius) !important;
+  font-family: 'Open Sans', sans-serif !important;
+}
+
+/* Animated Menu Items */
+.ant-menu-item {
+  margin: 4px 8px !important;
+  border-radius: 8px !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+.ant-menu-item::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: -100% !important;
+  width: 100% !important;
+  height: 100% !important;
+  background: linear-gradient(90deg, transparent, rgba(0, 188, 212, 0.1), transparent) !important;
+  transition: left 0.5s ease !important;
+}
+
+.ant-menu-item:hover::before {
+  left: 100% !important;
+}
+
+.ant-menu-item:hover {
+  background-color: rgba(0, 188, 212, 0.05) !important;
+  color: var(--primary-color) !important;
+  transform: translateX(4px) !important;
+}
+
+.ant-menu-item-selected {
+  background: linear-gradient(135deg, rgba(0, 188, 212, 0.15), rgba(0, 188, 212, 0.05)) !important;
+  border-left: 4px solid var(--primary-color) !important;
+  box-shadow: 0 2px 8px rgba(0, 188, 212, 0.2) !important;
+}
+
+.ant-menu-item-selected .ant-menu-title-content {
+  color: var(--primary-color) !important;
+  font-weight: 600 !important;
+}
+
+/* Menu icon animations */
+.ant-menu-item-icon {
+  transition: all 0.3s ease !important;
+}
+
+.ant-menu-item:hover .ant-menu-item-icon {
+  transform: scale(1.2) rotate(5deg) !important;
+  color: var(--primary-color) !important;
+}
+
+/* Enhanced Tables */
+.ant-table-thead > tr > th {
+  background: linear-gradient(135deg, rgba(0, 188, 212, 0.08), rgba(0, 188, 212, 0.03)) !important;
+  color: var(--dark-text) !important;
+  font-family: 'Poppins', sans-serif !important;
+  font-weight: 600 !important;
+  border-bottom: 3px solid var(--primary-color) !important;
+  position: relative !important;
+  padding: 16px !important;
+}
+
+.ant-table-thead > tr > th::after {
+  content: '' !important;
+  position: absolute !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 3px !important;
+  background: linear-gradient(90deg, transparent, var(--primary-color), transparent) !important;
+  animation: slideShine 3s linear infinite !important;
+}
+
+@keyframes slideShine {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+
+.ant-table-tbody > tr {
+  transition: all 0.3s ease !important;
+}
+
+.ant-table-tbody > tr:hover {
+  background-color: rgba(0, 188, 212, 0.03) !important;
+  transform: scale(1.01) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08) !important;
+}
+
+/* Table row entrance animation */
+.ant-table-tbody > tr {
+  animation: tableRowEntrance 0.4s ease-out !important;
+  animation-fill-mode: both !important;
+}
+
+.ant-table-tbody > tr:nth-child(1) { animation-delay: 0.05s !important; }
+.ant-table-tbody > tr:nth-child(2) { animation-delay: 0.1s !important; }
+.ant-table-tbody > tr:nth-child(3) { animation-delay: 0.15s !important; }
+.ant-table-tbody > tr:nth-child(4) { animation-delay: 0.2s !important; }
+.ant-table-tbody > tr:nth-child(5) { animation-delay: 0.25s !important; }
+
+@keyframes tableRowEntrance {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Success states with accent color */
+.ant-result-success .ant-result-icon > .anticon {
+  color: var(--accent-color) !important;
+}
+
+/* Form inputs */
+.ant-input,
+.ant-input-password,
+.ant-select-selector,
+.ant-picker {
+  border-radius: var(--border-radius) !important;
+  font-family: 'Open Sans', sans-serif !important;
+}
+
+.ant-input:focus,
+.ant-input-password:focus,
+.ant-select-focused .ant-select-selector,
+.ant-picker:hover,
+.ant-picker-focused {
+  border-color: var(--primary-color) !important;
+  box-shadow: 0 0 0 2px rgba(0, 188, 212, 0.2) !important;
+}
+
+/* Enhanced Modal styling */
+@keyframes modalEntrance {
+  from {
+    opacity: 0;
+    transform: scale(0.9) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.ant-modal-wrap {
+  animation: fadeIn 0.3s ease-out !important;
+}
+
+.ant-modal-content {
+  border-radius: var(--border-radius) !important;
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.15),
+    0 0 0 1px rgba(0, 188, 212, 0.1) !important;
+  animation: modalEntrance 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55) !important;
+  overflow: hidden !important;
+}
+
+.ant-modal-header {
+  background: linear-gradient(135deg, rgba(0, 188, 212, 0.05), transparent) !important;
+  border-radius: var(--border-radius) var(--border-radius) 0 0 !important;
+  border-bottom: 2px solid rgba(0, 188, 212, 0.1) !important;
+  padding: 20px 24px !important;
+}
+
+.ant-modal-title {
+  font-family: 'Poppins', sans-serif !important;
+  font-weight: 600 !important;
+  font-size: 18px !important;
+  color: var(--dark-text) !important;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Alert styles */
+.ant-alert-warning {
+  background-color: rgba(255, 152, 0, 0.1) !important;
+  border-color: var(--warning-color) !important;
+}
+
+.ant-alert-warning .ant-alert-icon {
+  color: var(--warning-color) !important;
+}
+
+.ant-alert-info {
+  background-color: rgba(0, 188, 212, 0.05) !important;
+  border-color: var(--primary-color) !important;
+}
+
+.ant-alert-info .ant-alert-icon {
+  color: var(--primary-color) !important;
+}
+
+/* Custom logo styling */
+.la-mattress-logo {
+  border-radius: 4px;
+  object-fit: contain;
+}
+
+/* Header customization */
+.ant-layout-header {
+  background: #ffffff !important;
+  border-bottom: 3px solid var(--primary-color) !important;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1) !important;
+}
+
+/* Sidebar menu */
+.ant-layout-sider {
+  background: #ffffff !important;
+  border-right: 1px solid #f0f0f0 !important;
+}
+
+.ant-menu-light {
+  background: #ffffff !important;
+}
+
+/* Dashboard cards enhancement */
+.dashboard-card {
+  transition: all 0.3s ease;
+}
+
+.dashboard-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Animated Medal Effects with Shine */
+@keyframes medalShine {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+@keyframes medalPulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.medal-bronze {
+  background: linear-gradient(135deg, #cd7f32, #b8762e, #cd7f32) !important;
+  background-size: 200% 100% !important;
+  animation: medalShine 3s linear infinite !important;
+  color: white !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) !important;
+  padding: 4px 12px !important;
+  border-radius: 20px !important;
+  font-weight: 600 !important;
+  display: inline-block !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+.medal-silver {
+  background: linear-gradient(135deg, #c0c0c0, #e8e8e8, #c0c0c0) !important;
+  background-size: 200% 100% !important;
+  animation: medalShine 3s linear infinite !important;
+  color: #333 !important;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.5) !important;
+  padding: 4px 12px !important;
+  border-radius: 20px !important;
+  font-weight: 600 !important;
+  display: inline-block !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+}
+
+.medal-gold {
+  background: linear-gradient(135deg, #ffc107, #ffeb3b, #ffc107) !important;
+  background-size: 200% 100% !important;
+  animation: medalShine 2.5s linear infinite, medalPulse 2s ease-in-out infinite !important;
+  color: #333 !important;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.5) !important;
+  padding: 4px 12px !important;
+  border-radius: 20px !important;
+  font-weight: 600 !important;
+  display: inline-block !important;
+  box-shadow: 0 2px 8px rgba(255, 193, 7, 0.4) !important;
+}
+
+.medal-platinum {
+  background: linear-gradient(135deg, #673ab7, #9c27b0, #673ab7) !important;
+  background-size: 200% 100% !important;
+  animation: medalShine 2s linear infinite, medalPulse 1.5s ease-in-out infinite !important;
+  color: white !important;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4) !important;
+  padding: 4px 12px !important;
+  border-radius: 20px !important;
+  font-weight: 600 !important;
+  display: inline-block !important;
+  box-shadow: 0 2px 12px rgba(103, 58, 183, 0.5) !important;
+}
+
+/* Legacy bonus colors for compatibility */
+.bonus-bronze { color: #cd7f32 !important; }
+.bonus-silver { color: #757575 !important; }
+.bonus-gold { color: #ffc107 !important; }
+.bonus-platinum { color: #673ab7 !important; }
+
+/* LA Mattress brand specific */
+.la-mattress-accent {
+  background-color: var(--accent-color) !important;
+  color: white !important;
+}
+
+/* Progress bars with cyan color */
+.ant-progress-bg {
+  background-color: var(--primary-color) !important;
+}
+
+/* Tags with better contrast */
+.ant-tag-cyan {
+  background-color: var(--primary-color) !important;
+  color: white !important;
+  border: none !important;
+}
+
+.ant-tag-red {
+  background-color: var(--accent-color) !important;
+  color: white !important;
+  border: none !important;
+}
+
+/* Animated Statistics */
+@keyframes countUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulseGlow {
+  0% {
+    box-shadow: 0 0 0 0 rgba(0, 188, 212, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(0, 188, 212, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(0, 188, 212, 0);
+  }
+}
+
+.ant-statistic {
+  animation: countUp 0.6s ease-out !important;
+}
+
+.ant-statistic-content-value {
+  font-family: 'Poppins', sans-serif !important;
+  font-weight: 700 !important;
+  background: linear-gradient(135deg, var(--primary-color), var(--dark-text)) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+}
+
+.ant-statistic-content-prefix {
+  animation: pulseGlow 2s infinite !important;
+}
+
+/* 3D Tags */
+.ant-tag {
+  border-radius: 20px !important;
+  padding: 4px 12px !important;
+  font-weight: 600 !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+  transition: all 0.3s ease !important;
+  border: none !important;
+}
+
+.ant-tag:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Progress bar animations */
+@keyframes progressPulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.ant-progress-bg {
+  background: linear-gradient(90deg, var(--primary-color), #00e6f9) !important;
+  animation: progressPulse 2s ease-in-out infinite !important;
+  box-shadow: 0 0 10px rgba(0, 188, 212, 0.5) !important;
+}
+
+/* Dashboard specific enhancements */
+.dashboard-metric-card {
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+.dashboard-metric-card::before {
+  content: '' !important;
+  position: absolute !important;
+  top: -50% !important;
+  right: -50% !important;
+  width: 200% !important;
+  height: 200% !important;
+  background: radial-gradient(circle, rgba(0, 188, 212, 0.1) 0%, transparent 70%) !important;
+  animation: rotate 20s linear infinite !important;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Professional Button Text Optimizations */
+.ant-btn-primary,
+.ant-btn-primary:hover,
+.ant-btn-primary:focus,
+.ant-btn-primary:active {
+  color: white !important;
+}
+
+.ant-btn-dangerous,
+.ant-btn-dangerous:hover,
+.ant-btn-dangerous:focus,
+.ant-btn-dangerous:active {
+  color: white !important;
+}
+
+/* Fix disabled button styles */
+.ant-btn[disabled],
+.ant-btn[disabled]:hover {
+  opacity: 0.6 !important;
+  cursor: not-allowed !important;
+  transform: none !important;
+}
+
+/* Optimize scrollbar appearance */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #00bcd4;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #00acc1;
+}
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Better focus states for accessibility */
+*:focus {
+  outline: 2px solid var(--primary-color) !important;
+  outline-offset: 2px !important;
+}
+
+.ant-btn:focus,
+.ant-input:focus,
+.ant-select:focus {
+  outline: none !important;
+  box-shadow: 0 0 0 2px rgba(0, 188, 212, 0.2) !important;
+}
+
+/* Loading spinner enhancement */
+.ant-spin-dot-item {
+  background-color: var(--primary-color) !important;
+}
+
+/* Optimize table performance */
+.ant-table-wrapper {
+  will-change: transform;
+}
+
+/* Better text selection */
+::selection {
+  background-color: rgba(0, 188, 212, 0.3);
+  color: var(--dark-text);
+}
+
+/* 3D Ranking Card Styles */
+.ranking-card {
+  perspective: 1000px !important;
+  transform-style: preserve-3d !important;
+}
+
+.ranking-table-row {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  transform-origin: center !important;
+  position: relative !important;
+}
+
+.ranking-table-row:hover {
+  transform: translateY(-8px) scale(1.02) !important;
+  z-index: 10 !important;
+}
+
+.ranking-table-row.top-3 {
+  background: linear-gradient(135deg, rgba(250, 173, 20, 0.1), rgba(250, 173, 20, 0.05)) !important;
+  box-shadow: 0 4px 20px rgba(250, 173, 20, 0.2) !important;
+}
+
+.ranking-table-row.current-user {
+  background: linear-gradient(135deg, rgba(0, 188, 212, 0.15), rgba(0, 188, 212, 0.05)) !important;
+  box-shadow: 0 4px 20px rgba(0, 188, 212, 0.3) !important;
+  animation: userPulse 2s ease-in-out infinite !important;
+}
+
+@keyframes userPulse {
+  0%, 100% {
+    box-shadow: 0 4px 20px rgba(0, 188, 212, 0.3);
+  }
+  50% {
+    box-shadow: 0 8px 30px rgba(0, 188, 212, 0.5);
+  }
+}
+
+.rank-badge {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 48px !important;
+  height: 48px !important;
+  border-radius: 50% !important;
+  font-weight: 700 !important;
+  font-size: 18px !important;
+  position: relative !important;
+  transform-style: preserve-3d !important;
+  animation: rankFloat 3s ease-in-out infinite !important;
+}
+
+.rank-badge.rank-1 {
+  background: linear-gradient(145deg, #FFD700, #FFA500) !important;
+  box-shadow: 0 4px 15px rgba(255, 215, 0, 0.5),
+              inset 0 2px 4px rgba(255, 255, 255, 0.5) !important;
+  color: #333 !important;
+  animation: goldShine 2s linear infinite, rankFloat 3s ease-in-out infinite !important;
+}
+
+.rank-badge.rank-2 {
+  background: linear-gradient(145deg, #E0E0E0, #BDBDBD) !important;
+  box-shadow: 0 4px 15px rgba(192, 192, 192, 0.5),
+              inset 0 2px 4px rgba(255, 255, 255, 0.5) !important;
+  color: #333 !important;
+  animation: silverShine 2.5s linear infinite, rankFloat 3s ease-in-out infinite !important;
+}
+
+.rank-badge.rank-3 {
+  background: linear-gradient(145deg, #CD7F32, #8B4513) !important;
+  box-shadow: 0 4px 15px rgba(205, 127, 50, 0.5),
+              inset 0 2px 4px rgba(255, 255, 255, 0.3) !important;
+  color: #fff !important;
+  animation: bronzeShine 3s linear infinite, rankFloat 3s ease-in-out infinite !important;
+}
+
+@keyframes rankFloat {
+  0%, 100% {
+    transform: translateY(0) rotateY(0deg);
+  }
+  25% {
+    transform: translateY(-2px) rotateY(5deg);
+  }
+  50% {
+    transform: translateY(0) rotateY(0deg);
+  }
+  75% {
+    transform: translateY(-2px) rotateY(-5deg);
+  }
+}
+
+@keyframes goldShine {
+  0% {
+    background: linear-gradient(145deg, #FFD700, #FFA500);
+  }
+  50% {
+    background: linear-gradient(145deg, #FFED4B, #FFD700);
+  }
+  100% {
+    background: linear-gradient(145deg, #FFD700, #FFA500);
+  }
+}
+
+@keyframes silverShine {
+  0% {
+    background: linear-gradient(145deg, #E0E0E0, #BDBDBD);
+  }
+  50% {
+    background: linear-gradient(145deg, #F5F5F5, #E0E0E0);
+  }
+  100% {
+    background: linear-gradient(145deg, #E0E0E0, #BDBDBD);
+  }
+}
+
+@keyframes bronzeShine {
+  0% {
+    background: linear-gradient(145deg, #CD7F32, #8B4513);
+  }
+  50% {
+    background: linear-gradient(145deg, #D2691E, #CD7F32);
+  }
+  100% {
+    background: linear-gradient(145deg, #CD7F32, #8B4513);
+  }
+}
+
+.employee-avatar {
+  width: 40px !important;
+  height: 40px !important;
+  border-radius: 50% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-weight: 700 !important;
+  color: white !important;
+  position: relative !important;
+  overflow: hidden !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
+  transition: all 0.3s ease !important;
+}
+
+.employee-avatar:hover {
+  transform: scale(1.1) rotate(5deg) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25) !important;
+}
+
+.employee-avatar::before {
+  content: "" !important;
+  position: absolute !important;
+  top: -50% !important;
+  left: -50% !important;
+  width: 200% !important;
+  height: 200% !important;
+  background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.3), transparent) !important;
+  transform: rotate(45deg) !important;
+  animation: avatarShine 3s linear infinite !important;
+}
+
+@keyframes avatarShine {
+  0% {
+    transform: translateX(-100%) translateY(-100%) rotate(45deg);
+  }
+  100% {
+    transform: translateX(100%) translateY(100%) rotate(45deg);
+  }
+}
+
+.sales-badge {
+  display: inline-flex !important;
+  align-items: center !important;
+  padding: 4px 12px !important;
+  border-radius: 20px !important;
+  background: linear-gradient(135deg, #ff4d4f, #ff7875) !important;
+  color: white !important;
+  font-weight: 600 !important;
+  box-shadow: 0 2px 8px rgba(255, 77, 79, 0.3) !important;
+  transition: all 0.3s ease !important;
+}
+
+.sales-badge:hover {
+  transform: translateY(-2px) scale(1.05) !important;
+  box-shadow: 0 4px 12px rgba(255, 77, 79, 0.4) !important;
+}
+
+.commission-badge {
+  display: inline-flex !important;
+  align-items: center !important;
+  padding: 6px 16px !important;
+  border-radius: 24px !important;
+  background: linear-gradient(135deg, #52c41a, #73d13d) !important;
+  color: white !important;
+  font-weight: 700 !important;
+  font-size: 16px !important;
+  box-shadow: 0 2px 8px rgba(82, 196, 26, 0.3) !important;
+  transition: all 0.3s ease !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+.commission-badge::before {
+  content: "$" !important;
+  margin-right: 2px !important;
+}
+
+.commission-badge:hover {
+  transform: translateY(-2px) scale(1.05) !important;
+  box-shadow: 0 4px 12px rgba(82, 196, 26, 0.4) !important;
+}
+
+.trend-indicator {
+  display: inline-flex !important;
+  align-items: center !important;
+  padding: 2px 8px !important;
+  border-radius: 12px !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  transition: all 0.3s ease !important;
+}
+
+.trend-up {
+  background: rgba(82, 196, 26, 0.1) !important;
+  color: #52c41a !important;
+  animation: trendUpPulse 2s ease-in-out infinite !important;
+}
+
+.trend-down {
+  background: rgba(255, 77, 79, 0.1) !important;
+  color: #ff4d4f !important;
+  animation: trendDownPulse 2s ease-in-out infinite !important;
+}
+
+@keyframes trendUpPulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+@keyframes trendDownPulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.9);
+  }
+}
+
+.ranking-header {
+  background: linear-gradient(135deg, rgba(0, 188, 212, 0.1), rgba(244, 67, 54, 0.1)) !important;
+  padding: 20px !important;
+  border-radius: 12px !important;
+  margin-bottom: 24px !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+.ranking-header::before {
+  content: "" !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: -100% !important;
+  width: 100% !important;
+  height: 100% !important;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent) !important;
+  animation: headerShine 3s linear infinite !important;
+}
+
+@keyframes headerShine {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+.position-change-tag {
+  padding: 4px 12px !important;
+  border-radius: 16px !important;
+  font-weight: 600 !important;
+  font-size: 12px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 4px !important;
+  transition: all 0.3s ease !important;
+}
+
+.position-change-tag:hover {
+  transform: scale(1.1) !important;
+}
+
+/* Interactive hover effects for ranking rows */
+.ant-table-tbody > tr.ranking-table-row {
+  cursor: pointer !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.ant-table-tbody > tr.ranking-table-row:hover td {
+  background: transparent !important;
+}
+
+/* 3D effect on hover */
+.ant-table-tbody > tr.ranking-table-row::before {
+  content: "" !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  background: linear-gradient(135deg, transparent, rgba(0, 188, 212, 0.1), transparent) !important;
+  transform: translateZ(-1px) !important;
+  transition: all 0.3s ease !important;
+  opacity: 0 !important;
+  z-index: -1 !important;
+}
+
+.ant-table-tbody > tr.ranking-table-row:hover::before {
+  opacity: 1 !important;
+  transform: translateZ(0) scale(1.02) !important;
+}
