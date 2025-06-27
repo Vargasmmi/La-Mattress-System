@@ -396,6 +396,9 @@ const ProductsPage: React.FC = () => {
     },
   ];
 
+  // Check if it's first time (no products)
+  const isFirstTime = products.length === 0 && !isLoading;
+
   return (
     <div style={{ padding: "24px" }}>
       <Row gutter={[16, 16]}>
@@ -474,13 +477,48 @@ const ProductsPage: React.FC = () => {
 
         <Col span={24}>
           <Card>
-            <Table
-              columns={columns}
-              dataSource={products}
-              rowKey="id"
-              loading={isLoading}
-              pagination={{ pageSize: 10 }}
-            />
+            {isFirstTime ? (
+              <div style={{ textAlign: "center", padding: "60px 20px" }}>
+                <ShoppingOutlined style={{ fontSize: 64, color: "#bdbdbd", marginBottom: 24 }} />
+                <Title level={3} style={{ color: "#595959" }}>No Products Yet</Title>
+                <Paragraph style={{ fontSize: 16, marginBottom: 32 }}>
+                  Start by syncing products from your Shopify store or create products manually.
+                </Paragraph>
+                <Space size="large">
+                  <Button
+                    type="primary"
+                    size="large"
+                    icon={<SyncOutlined />}
+                    loading={syncLoading}
+                    onClick={handleSyncFromShopify}
+                  >
+                    Sync from Shopify
+                  </Button>
+                  <Button
+                    size="large"
+                    icon={<PlusOutlined />}
+                    onClick={() => setCreateModalVisible(true)}
+                  >
+                    Create Product Manually
+                  </Button>
+                </Space>
+                <Alert
+                  message="Shopify Integration"
+                  description="Make sure you've configured your Shopify credentials in the Integration page before syncing."
+                  type="info"
+                  showIcon
+                  style={{ marginTop: 32, maxWidth: 500, margin: "32px auto 0" }}
+                />
+              </div>
+            ) : (
+              <Table
+                columns={columns}
+                dataSource={products}
+                rowKey="id"
+                loading={isLoading}
+                pagination={{ pageSize: 10 }}
+              />
+            )}
           </Card>
         </Col>
       </Row>
