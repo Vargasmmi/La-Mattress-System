@@ -27,6 +27,10 @@ import OrdersPage from "./pages/OrdersPage";
 import CustomersPage from "./pages/CustomersPage";
 import IntegrationPage from "./pages/IntegrationPage";
 import UsersManagementPage from "./pages/UsersManagementPage";
+import TestConnectionPage from "./pages/TestConnectionPage";
+
+// Import components
+import ConnectionStatus from "./components/ConnectionStatus";
 
 // Import icons
 import {
@@ -43,6 +47,7 @@ import {
   ShoppingCartOutlined,
   SettingOutlined,
   SafetyOutlined,
+  ApiOutlined,
 } from "@ant-design/icons";
 
 
@@ -87,6 +92,7 @@ const CustomHeader = () => {
           />
           <span style={{ fontSize: '20px', fontWeight: '600', color: '#212121' }}>La Mattress System</span>
         </div>
+        <ConnectionStatus />
         {userData && (
           <Tag color={userData.role === 'admin' ? '#f44336' : '#00bcd4'} style={{ color: 'white', fontWeight: '600' }}>
             {userData.name} - {userData.role === 'admin' ? 'Administrator' : 'Employee'}
@@ -276,6 +282,15 @@ const AppContent: React.FC = () => {
         hide: userRole === "employee",
       },
     },
+    {
+      name: "test-connection",
+      list: "/test-connection",
+      meta: {
+        label: "Connection Test",
+        icon: <ApiOutlined />,
+        hide: userRole === "employee",
+      },
+    },
   ], [userRole]);
 
   return (
@@ -397,6 +412,16 @@ const AppContent: React.FC = () => {
               element={
                 <CanAccess resource="users" action="list" fallback={<Navigate to="/" />}>
                   <UsersManagementPage />
+                </CanAccess>
+              }
+            />
+
+            {/* Admin Only - Connection Test */}
+            <Route
+              path="/test-connection"
+              element={
+                <CanAccess resource="test-connection" action="list" fallback={<Navigate to="/" />}>
+                  <TestConnectionPage />
                 </CanAccess>
               }
             />

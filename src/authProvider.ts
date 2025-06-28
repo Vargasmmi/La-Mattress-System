@@ -175,19 +175,16 @@ export const accessControlProvider = {
 export const authProvider: AuthProvider = {
   login: async ({ email, password }) => {
     try {
+      // Import API request helper
+      const { apiRequest } = await import('./services/apiConfig');
+      
       // First try API login
-      const response = await fetch("https://backend-mu-three-66.vercel.app/api/auth/login", {
+      const data = await apiRequest('/auth/login', {
         method: "POST",
-        headers: {
-          "accept": "application/json, text/plain, */*",
-          "content-type": "application/json",
-        },
         body: JSON.stringify({ email, password }),
       });
 
-      const data = await response.json();
-
-      if (response.ok && data.success) {
+      if (data.success) {
         // Store the token and user data from API
         localStorage.setItem("token", data.token);
         
@@ -288,25 +285,18 @@ export const authProvider: AuthProvider = {
     // If we have a token, try to get fresh user data from API
     if (token && user) {
       try {
-        const response = await fetch("https://backend-mu-three-66.vercel.app/api/auth/me", {
-          headers: {
-            "Authorization": `Bearer ${token}`,
-            "Accept": "application/json",
-          },
-        });
+        const { apiRequest } = await import('./services/apiConfig');
+        const data = await apiRequest('/auth/me');
         
-        if (response.ok) {
-          const data = await response.json();
-          if (data.success && data.user) {
-            const userData = {
-              id: data.user.id,
-              email: data.user.email,
-              name: data.user.email.split('@')[0],
-              role: data.user.role || "admin",
-            };
-            localStorage.setItem("user", JSON.stringify(userData));
-            return userData;
-          }
+        if (data.success && data.user) {
+          const userData = {
+            id: data.user.id,
+            email: data.user.email,
+            name: data.user.email.split('@')[0],
+            role: data.user.role || "admin",
+          };
+          localStorage.setItem("user", JSON.stringify(userData));
+          return userData;
         }
       } catch (error) {
         console.error("Error fetching user identity:", error);

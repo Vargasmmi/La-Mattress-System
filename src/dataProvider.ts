@@ -1,62 +1,6 @@
 import { DataProvider } from "@refinedev/core";
 import api from "./services/api";
-
-// Backend API base URL
-const API_URL = "https://backend-mu-three-66.vercel.app/api";
-
-// Helper function to get auth token
-const getAuthToken = (): string | null => {
-  try {
-    return localStorage.getItem('token');
-  } catch (error) {
-    console.error('Error accessing localStorage:', error);
-    return null;
-  }
-};
-
-// Helper function for API requests
-const apiRequest = async (endpoint: string, options: RequestInit = {}): Promise<any> => {
-  try {
-    const token = getAuthToken();
-    
-    const headers: HeadersInit = {
-      'Content-Type': 'application/json',
-      'Accept': 'application/json',
-      ...(token && { 'Authorization': `Bearer ${token}` }),
-      ...options.headers,
-    };
-
-    const response = await fetch(`${API_URL}${endpoint}`, {
-      ...options,
-      headers,
-    });
-
-    if (!response.ok) {
-      const errorData = await response.json().catch(() => ({ message: 'Network error' }));
-      
-      // Silently handle 404 errors for specific endpoints
-      if (response.status === 404 && (
-        endpoint.includes('/employees') || 
-        endpoint.includes('/stores') || 
-        endpoint.includes('/call-clients') ||
-        endpoint.includes('/calls') ||
-        endpoint.includes('/users')
-      )) {
-        throw new Error('Route not found');
-      }
-      
-      throw new Error(errorData.message || `HTTP ${response.status}`);
-    }
-
-    return await response.json();
-  } catch (error: any) {
-    // Only log non-404 errors
-    if (!error.message?.includes('Route not found')) {
-      console.error(`API request failed for ${endpoint}:`, error);
-    }
-    throw error;
-  }
-};
+import { apiRequest, API_CONFIG } from "./services/apiConfig";
 
 // Map frontend resource names to backend API endpoints
 const resourceMap: Record<string, {
@@ -291,29 +235,17 @@ export const dataProvider: DataProvider = {
   },
 
   getApiUrl: () => {
-    return API_URL;
+    return API_CONFIG.BASE_URL;
   },
 
   custom: async ({ url, method, filters, sort, payload, query, headers }) => {
     // Custom method for API calls not covered by standard CRUD
-    const token = getAuthToken();
-    
     try {
-      const response = await fetch(url.startsWith('http') ? url : `${API_URL}${url}`, {
+      const data = await apiRequest(url, {
         method,
-        headers: {
-          "Content-Type": "application/json",
-          ...(token && { "Authorization": `Bearer ${token}` }),
-          ...headers,
-        },
+        headers,
         body: payload ? JSON.stringify(payload) : undefined,
       });
-
-      const data = await response.json();
-      
-      if (!response.ok) {
-        throw new Error(data.message || "Request failed");
-      }
 
       return { data };
     } catch (error) {
