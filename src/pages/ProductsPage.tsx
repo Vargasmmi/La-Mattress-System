@@ -37,7 +37,7 @@ import { useGetIdentity, useList, useCreate, useUpdate, useDelete } from "@refin
 import { apiHelpers } from "../dataProvider";
 import shopifyTest from "../services/shopifyTest";
 
-const { Title, Text } = Typography;
+const { Title, Text, Paragraph } = Typography;
 const { TextArea } = Input;
 
 interface Product {

@@ -1,5 +1,6 @@
 import { DataProvider } from "@refinedev/core";
 import api from "./services/api";
+import { logger } from "./utils/logger";
 
 // Backend API base URL
 const API_URL = "https://backend-mu-three-66.vercel.app/api";
@@ -9,7 +10,7 @@ const getAuthToken = (): string | null => {
   try {
     return localStorage.getItem('token');
   } catch (error) {
-    console.error('Error accessing localStorage:', error);
+    logger.error('Error accessing localStorage', error, 'DataProvider');
     return null;
   }
 };
@@ -52,7 +53,7 @@ const apiRequest = async (endpoint: string, options: RequestInit = {}): Promise<
   } catch (error: any) {
     // Only log non-404 errors
     if (!error.message?.includes('Route not found')) {
-      console.error(`API request failed for ${endpoint}:`, error);
+      logger.error('API request failed', { endpoint, error }, 'DataProvider');
     }
     throw error;
   }
@@ -115,12 +116,12 @@ const resourceMap: Record<string, {
 const handleApiError = (error: any, resource: string, operation: string) => {
   // Only log non-404 errors to reduce console noise
   if (!error.message?.includes('Route not found') && !error.message?.includes('404')) {
-    console.error(`${operation} ${resource} error:`, error);
+    logger.error('API operation failed', { operation, resource, error }, 'DataProvider');
   }
   
   // For 404 errors, just log once at debug level
   if (error.message?.includes('Route not found')) {
-    console.debug(`Resource ${resource} not implemented in backend yet - using fallback`);
+    logger.debug('Resource not implemented in backend yet - using fallback', { resource }, 'DataProvider');
   }
   
   // Don't throw for missing endpoints, return empty data instead
@@ -133,7 +134,7 @@ export const dataProvider: DataProvider = {
     
     // For resources not in the backend, return mock data
     if (!resourceConfig) {
-      console.log(`Resource ${resource} not found in backend, using mock data`);
+      logger.info('Resource not found in backend, using mock data', { resource }, 'DataProvider');
       
       // Return empty data for non-existent resources
       if (resource === "call-clients") {
@@ -170,7 +171,7 @@ export const dataProvider: DataProvider = {
     } catch (error: any) {
       // If it's a missing endpoint error, provide mock data for certain resources
       if (error.message?.includes('Route not found')) {
-        console.debug(`Resource ${resource} not implemented in backend yet - using mock data`);
+        logger.debug('Resource not implemented in backend yet - using mock data', { resource }, 'DataProvider');
         
         // Return empty data for call-clients
         if (resource === 'call-clients') {
@@ -317,7 +318,7 @@ export const dataProvider: DataProvider = {
 
       return { data };
     } catch (error) {
-      console.error("Custom API call error:", error);
+      logger.error('Custom API call error', error, 'DataProvider');
       throw error;
     }
   },

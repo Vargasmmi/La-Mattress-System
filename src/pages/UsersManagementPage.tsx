@@ -41,6 +41,7 @@ import {
 } from "@ant-design/icons";
 import type { ColumnsType } from "antd/es/table";
 import dayjs from "dayjs";
+import { logger } from '../utils/logger';
 
 const { Title, Text } = Typography;
 const { Option } = Select;
@@ -220,7 +221,7 @@ const UsersManagementPageContent: React.FC = () => {
         appMessage.success("Usuario creado exitosamente");
       },
       onError: (error) => {
-        console.error("Error creating user:", error);
+        logger.error('Error creating user', error, 'UsersManagementPage');
         appMessage.error("Error al crear usuario");
       }
     });
@@ -250,7 +251,7 @@ const UsersManagementPageContent: React.FC = () => {
         appMessage.success("Usuario actualizado exitosamente");
       },
       onError: (error) => {
-        console.error("Error updating user:", error);
+        logger.error('Error updating user', error, 'UsersManagementPage');
         appMessage.error("Error al actualizar usuario");
       }
     });
@@ -282,7 +283,7 @@ const UsersManagementPageContent: React.FC = () => {
             appMessage.success("Usuario eliminado exitosamente");
           },
           onError: (error) => {
-            console.error("Error deleting user:", error);
+            logger.error('Error deleting user', error, 'UsersManagementPage');
             appMessage.error("Error al eliminar usuario");
           }
         });
@@ -335,7 +336,7 @@ const UsersManagementPageContent: React.FC = () => {
         appMessage.success("Permisos actualizados exitosamente");
       },
       onError: (error) => {
-        console.error("Error updating permissions:", error);
+        logger.error('Error updating permissions', error, 'UsersManagementPage');
         appMessage.error("Error al actualizar permisos");
       }
     });

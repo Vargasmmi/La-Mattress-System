@@ -1,5 +1,6 @@
 // Shopify API Client Configuration
 // This client handles direct communication with Shopify API
+import { logger } from '../utils/logger';
 
 interface ShopifyConfig {
   shopName: string;
@@ -142,7 +143,7 @@ class ShopifyClient {
 
       return await response.json();
     } catch (error: any) {
-      console.error('Shopify API request failed:', error);
+              logger.error('Shopify API request failed', error, 'ShopifyClient');
       throw error;
     }
   }
@@ -154,7 +155,7 @@ class ShopifyClient {
       const response = await this.makeRequest('/shop.json');
       return !!response.shop;
     } catch (error) {
-      console.error('Shopify connection test failed:', error);
+      logger.error('Shopify connection test failed', error, 'ShopifyClient');
       return false;
     }
   }
